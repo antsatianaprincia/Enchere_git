@@ -11,7 +11,12 @@ public class OfferService {
 
     OfferRep offerRep;
 
-    public List<Offer> getAll(){
-        return offerRep.findAll();
+    public List<Offer> getAllOffre(){
+        List<Offer> list = offerRep.findAll();
+        return list;
+    }
+
+    public Offer save(Offer offer) {
+        return  offerRep.save(offer);
     }
 }
