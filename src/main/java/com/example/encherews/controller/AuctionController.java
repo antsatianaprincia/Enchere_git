@@ -118,7 +118,7 @@ public class AuctionController {
 
 
     @GetMapping("/user/{idUser}")
-    public ResponseEntity<?>getAuctionUser( @PathVariable ("idUser")int idUser){
+    public ResponseEntity<?>getAuctionUser(@PathVariable ("idUser")int idUser){
         Image img = new Image();
         List<Auction> list=null;
         try {
@@ -128,6 +128,7 @@ public class AuctionController {
                 img=imageService.findByIdAuction(list.get(i).getId());
                 list.get(i).setImage(img);
             }
+            
         }
         catch (Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
