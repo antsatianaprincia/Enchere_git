@@ -31,7 +31,7 @@ public class AuctionController {
     @Autowired
     ImageService imageService;
 
-            @GetMapping
+            @GetMapping("/get")
             public ResponseEntity<?>getAll(){
                 List<Auction> list=null;
                 Image img = new Image();
@@ -63,7 +63,7 @@ public class AuctionController {
                 return ResponseEntity.ok(i);
             }
 
-            @PostMapping
+            @PostMapping("/post")
             public ResponseEntity<Auction> newAuction(@RequestBody Auction auction, Image image){
                 Auction auction1=null;
                 try{
