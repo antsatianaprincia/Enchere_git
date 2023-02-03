@@ -21,7 +21,6 @@ import java.util.List;
 @RequestMapping("/auctions")
 public class AuctionController {
 
-    private final ObjectMapper objectMapper=new ObjectMapper();
 
     @Autowired
     AuctionService auctionService;
