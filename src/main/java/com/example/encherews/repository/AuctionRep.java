@@ -21,8 +21,8 @@ public interface AuctionRep extends JpaRepository<Auction,Integer> {
      public List<Auction> listeByIdUser(Integer iduser);
 
 
-     @Query(value = "select a.* from auction a join products p on a.idproducts = p.id join users u on u.id = p.iduser where u.id=:idUser",nativeQuery = true)
-     List<Auction> findAuctionUser(@Param("idUser") int idUser);
+     @Query(value = "select a.* from auction a join products p on a.idproducts = p.id join users u on u.id = p.iduser where u.id=?1",nativeQuery = true)
+     public List<Auction> findAuctionUser(int idUser);
 
 
 

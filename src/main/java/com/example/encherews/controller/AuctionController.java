@@ -128,7 +128,7 @@ public class AuctionController {
                 img=imageService.findByIdAuction(list.get(i).getId());
                 list.get(i).setImage(img);
             }
-            
+
         }
         catch (Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

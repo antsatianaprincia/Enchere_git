@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OfferRep extends JpaRepository<Offer,Integer> {
 
-    @Query(value = "select * from offer where idauction=:id",nativeQuery = true)
-    public List<Offer> getOfferByIdAuction(@Param("id") int id);
+    @Query(value = "select * from offer where idauction=?1",nativeQuery = true)
+    public List<Offer> getOfferByIdAuction(int id);
 
 }
