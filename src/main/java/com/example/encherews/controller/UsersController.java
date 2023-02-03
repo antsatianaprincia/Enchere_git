@@ -57,8 +57,13 @@ public class UsersController {
     @PostMapping("/login")
     public ResponseEntity<Token> log(@RequestBody User utilisateur){
         Token generateToken = null;
+        System.out.println(utilisateur.getEmail());
+        System.out.println(utilisateur.getPassword());
         try{
+            System.out.println(utilisateur.getEmail());
             User user = userService.findByEmailAndPassword(utilisateur.getEmail(), utilisateur.getPassword());
+            System.out.println(user.getEmail());
+
 
             Token token = new Token();
             token.setIdUser(user);
@@ -82,6 +87,29 @@ public class UsersController {
     }
 
 
+    @GetMapping("/token/check")
+    public ResponseEntity<?> chechToken(@RequestBody Token token){
+
+        Boolean isValable = null;
+
+        try {
+            isValable = tokenService.bearerToken(token);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return ResponseEntity.ok(isValable);
+    }
+
+    @GetMapping("/logout")
+    public void logout(@RequestBody Token token){
+        try {
+            tokenService.deconnexion(token);
+        }
+        catch (Exception e){
+            new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 
 }

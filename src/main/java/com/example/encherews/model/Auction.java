@@ -42,7 +42,8 @@ public class Auction {
     @Column(name = "isclosed")
     private int isClosed;
 
-
+    @Transient
+    private Image image;
 
 
 }

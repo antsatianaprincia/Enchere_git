@@ -12,4 +12,6 @@ public interface TokenRep extends JpaRepository<Token, Integer> {
     @Query(value = "Update token set isvalable=false where id=?1", nativeQuery = true)
     public void deconnexion(int idToken);
 
+
+
 }

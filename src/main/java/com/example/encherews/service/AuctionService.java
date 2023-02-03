@@ -32,5 +32,14 @@ public class AuctionService {
         return auctionRep.findByDescriptionsOrPubDateOrPriceOrIsClosed(descriptions,pubDate,price,isClosed);
     }
 
+    public List<Auction> listeByIdUser(int iduser){
+        return auctionRep.listeByIdUser(iduser);
+    }
+
+
+    public List<Auction>getAuctionUser(int idUser){
+        return auctionRep.findAuctionUser(idUser);
+    }
+
 
 }
